@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+        
+<script LANGUAGE="JavaScript">
+function getParams(){
+var idx = document.URL.indexOf('?');
+var params = new Array();
+if (idx != -1) {
+var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+for (var i=0; i<pairs.length; i++){
+nameVal = pairs[i].split('=');
+params[nameVal[0]] = nameVal[1];
+}
+}
+return params;
+}
+params = getParams();
+userName = unescape(params["userName"]);
+password = unescape(params["password"]);
+age = unescape(params["age"]);
+document.write("userName = " + userName + "<br>");
+document.write("password = " + password + "<br>");
+</script>
+<div class="topnav"> 
+  <form  action="<%=request.getContextPath()%>
+        /LoginServlet" method="post">
+        <td><input type="submit" value="ADMIN"></input></td>
+        <td><input type="submit" value="EDITOR"></input></td>
+        <td><input type="submit" value="USER"></input></td>
+        </form>
+      </div>
+</body>
+</html>
+<!-- 
+
+
+<html>
+    <form  action="<%=request.getContextPath()%>
+        /LoginServlet" method="post">
+
+   <td><input type="submit" value="ADMIN"></input></td>
+   <td><input type="submit" value="EDITOR"></input></td>
+   <td><input type="submit" value="USER"></input></td>
+</form>
+</html> -->
